@@ -1,0 +1,43 @@
+<div>
+  <form #userlogin="ngForm" (ngSubmit)="onclick(userlogin.value)">
+    username:<input type="text" name="uname" [(ngModel)]="uname"><br />
+    password:<input type="password" name="pwd" [(ngModel)]="pwd"><br />
+    email:<input type="email" name="email" [(ngModel)]="email"><br/>
+    type:<select  name="type" [(ngModel)]="type">
+        <option value="type1">type1</option>
+        <option value="type2"  selected="selected">type2</option>
+    </select>
+    <button type="submit">Submit</button>
+  </form>
+
+  <li *ngFor="let use of user">
+    <table class="design" [ngStyle]="{'background-color':'gray'}">
+      <tr class="design">
+        <td >name</td>
+        <td>:</td>
+        <td >{{use.uname}}</td>
+      </tr>
+      <tr class="design">
+        <td >pwd</td>
+        <td>:</td>
+        <td >{{use.pwd}}</td>
+      </tr>
+      <tr class="design">
+        <td >email</td>
+        <td>:</td>
+        <td>{{use.email}}</td>
+      </tr>
+      <tr class="design">
+        <td >type</td>
+        <td>:</td>
+        <td>{{use.type}}</td>
+      </tr>
+    </table>
+  </li>
+  <ul *ngFor ="let usr of user">
+    <li *ngIf="usr.pwd==='abc'">
+        <h2>hello {{usr.uname}}</h2>
+    </li>
+
+  </ul>
+</div>
